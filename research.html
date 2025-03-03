@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incoming...</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap');
+
+        :root {
+            --bg-color: #111927;
+            --text-color: #e0e6f0;
+            --accent-color: #3498db;
+            --secondary-color: #f39c12;
+            --subtle-color: #a0acc0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-out;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 500;
+            color: var(--secondary-color);
+            letter-spacing: -0.5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Incoming...</h1>
+
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.body.style.opacity = "1";
+            }, 500);
+        };
+    </script>
+</body>
+</html>
