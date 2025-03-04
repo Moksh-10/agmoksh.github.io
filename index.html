@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,272 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moksh Agrawal</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap');
-        
-        :root {
-            --bg-color: #111927;
-            --text-color: #e0e6f0;
-            --accent-color: #3498db;
-            --secondary-color: #f39c12;
-            --subtle-color: #a0acc0;
-            --border-color: rgba(163, 0, 68, 0.15);
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        <!-- body {
+        :root {
+            --bg-color: #000;
+            --text-color: #fff;
+            --accent-color: #fff;
+            --border-color: rgba(255, 255, 255, 0.2);
+        }
+        body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 0;
-            opacity: 0;
-            transition: opacity 2s ease-out;
-        } -->
-
-        body {
-            font-family: 'Inter', sans-serif;
-            font-size: 2000px;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
-            padding: 0;
-            opacity: 0;
-            transition: opacity 2s ease-out;
-        }
-        
-        <!-- .container {
-            width: 90%;
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
-            border-left: 3px solid var(--border-color);
-        } -->
-
+            padding: 60px 20px;
+            font-size: 18px;
+        }
         .container {
-            width: 90%;
-            max-width: 800px;
+            max-width: 650px;
             margin: 0 auto;
-            padding: 50px 25px;
-            border-left: 3px solid var(--border-color);
         }
-        
-        a { 
-            color: var(--accent-color); 
-            text-decoration: none; 
-            transition: color 0.2s ease, border-bottom 0.2s ease;
-            border-bottom: 1px solid transparent;
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
         }
-        
-        a:hover { 
-            color: var(--secondary-color);
-            border-bottom: 1px solid var(--secondary-color);
+        .intro {
+            font-size: 1.4rem;
+            color: #ccc;
+            margin-bottom: 2.5rem;
         }
-        
-        h1 { 
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(24px, 5vw, 32px);
-            font-weight: 500; 
-            color: var(--secondary-color);
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        
-        .intro { 
-            font-size: clamp(16px, 3vw, 18px); 
-            color: var(--accent-color);
-            font-weight: 300;
-            margin-bottom: 32px;
-        }
-        
         nav {
-            margin: 40px 0;
+            margin: 2.5rem 0;
         }
-        
-        .nav-item {
-            font-family: 'JetBrains Mono', monospace;
-            display: block;
-            font-size: clamp(16px, 3vw, 18px);
-            margin: 16px 0;
+        .dropdown-menu {
+            display: none;
+            background-color: #111;
+            border: 1px solid var(--border-color);
+            margin-top: 8px;
+            padding: 15px;
+            font-size: 1rem;
             color: var(--text-color);
-            position: relative;
-            padding-left: 18px;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        
-        .nav-item::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            opacity: 0.7;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
-        
-        .nav-item:hover::before {
+        .dropdown-menu.show {
+            display: block;
             opacity: 1;
-            transform: translateX(3px);
+            transform: translateY(0);
         }
-        
+        .dropdown-menu ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+        .dropdown-menu ul li {
+            font-size: 1.2rem;
+            margin: 8px 0;
+            opacity: 0;
+            transform: translateY(-5px);
+            animation: fadeIn 0.3s ease forwards;
+        }
+        .dropdown-menu ul li a:hover {
+            color: #888;
+            text-decoration: underline;
+        }
+        a:visited {
+            color: var(--text-color); /* This ensures visited links don't turn purple */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .nav-link {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .nav-link::before {
+            content: "> ";
+            color: var(--text-color);
+            font-weight: 400;
+        }
+        .nav-link:hover {
+            color: #888;
+        }
         footer {
-            margin-top: 40px;
-            font-size: clamp(12px, 2.5vw, 14px);
-            color: var(--subtle-color);
-            border-top: 1px solid rgba(160, 172, 192, 0.1);
-            padding-top: 20px;
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 1rem;
         }
-        
         .footer-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 8px;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
-        
-        #loading-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: var(--bg-color);
-            display: flex;
-            justify-content: center;
+        .footer-links a, footer p a {
+            color: #888;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            display: inline-flex;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 2s ease-out;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-color);
-            font-size: clamp(14px, 3vw, 16px);
         }
-        
-        .loading-container {
-            position: relative;
-            width: 80%;
-            max-width: 300px;
+        .footer-links a:hover, footer p a:hover {
+            color: var(--text-color);
         }
-        
-        #loading-text {
-            opacity: 0.8;
-            text-align: center;
+        .link-arrow {
+            font-size: 1.0em;
+            margin-left: 3px;
+            transition: transform 0.2s ease;
         }
-        
-        .loading-bar {
-            width: 100%;
-            height: 2px;
-            background: rgba(52, 152, 219, 0.1);
-            margin-top: 10px;
-            overflow: hidden;
-            position: relative;
+        .footer-links a:hover .link-arrow, footer p a:hover .link-arrow {
+            transform: translate(2px, -2px);
         }
-        
-        .loading-progress {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0%;
-            background: var(--accent-color);
-            transition: width 0.5s ease;
-        }
-        
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 30px 15px;
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 20px;
+                font-size: 16px;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                border-left: none;
-                border-top: 3px solid var(--border-color);
-                padding-top: 20px;
+            h1 {
+                font-size: 2.5rem;
             }
-            
-            .nav-item {
-                margin: 12px 0;
+            .intro {
+                font-size: 1.2rem;
             }
-            
-            footer {
-                margin-top: 30px;
+            .nav-link {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div id="loading-overlay">
-        <div class="loading-container">
-            <div id="loading-text">Initializing...</div>
-            <div class="loading-bar">
-                <div class="loading-progress" id="progress"></div>
-            </div>
-        </div>
-    </div>
-    
     <div class="container">
         <header>
             <h1>Moksh Agrawal</h1>
-            <p class="intro">Just a Culer interested in Machine Learning.</p>
+            <p class="intro">Just a Culer interested in Machine Learning</p>
         </header>
-        
         <nav>
-            <a href="projects.html" class="nav-item" target="_blank">projects</a>
-            <a href="research.html" class="nav-item" target="_blank">research & review papers</a>
-            <a href="blogs.html" class="nav-item" target="_blank">blogs</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <div class="nav-link" onclick="toggleMenu('blog-menu')">Blog
+                <div id="blog-menu" class="dropdown-menu">
+                    <ul>
+                        <li><a href="https://general-share-c6c.notion.site/Different-Types-of-Attention-Mechanisms-1ac1f019fccc80c9adc5d7149da2a2f1">Different Types of Attention Mechanisms</a></li>
+                        <li><a href="https://general-share-c6c.notion.site/Decoding-Einsum-1ac1f019fccc803bb781f2de8063614a">Decoding Einsum</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-link" onclick="toggleMenu('research-menu')">Research
+                <div id="research-menu" class="dropdown-menu">
+                    <ul>
+                        <li>EV Charging Infrastructure Optimization</li>
+                        <li>More papers Coming Soon</li>
+                    </ul>
+                </div>
+            </div>
+            
         </nav>
-        
         <footer>
-            <p>Contact: <a href="mailto:mokshagrawal42@gmail.com" target="_blank">Email</a></p>
             <div class="footer-links">
-                <a href="https://github.com/Moksh-10" target="_blank">Github</a>
-                <a href="https://x.com/agmoksh10" target="_blank">Twitter</a>
+                <a href="mailto:mokshagrawal42@gmail.com">Email <span class="link-arrow">↗</span></a>
+                <a href="https://github.com/Moksh-10">GitHub <span class="link-arrow">↗</span></a>
+                <a href="https://x.com/agmoksh10">Twitter <span class="link-arrow">↗</span></a>
             </div>
         </footer>
     </div>
-    
     <script>
-        const loadingTexts = [
-            "Initializing...",
-            "Loading models...",
-            "Generating output...",
-            "Finalizing..."
-        ];
-        
-        let textIndex = 0;
-        let progress = 0;
-        const progressBar = document.getElementById("progress");
-        
-        function updateLoading() {
-            if (progress < 100) {
-                // Update text periodically
-                if (progress % 25 === 0 && textIndex < loadingTexts.length) {
-                    document.getElementById("loading-text").innerText = loadingTexts[textIndex];
-                    textIndex++;
-                }
-                
-                // Increment progress
-                progress += 1;
-                progressBar.style.width = progress + "%";
-                
-                setTimeout(updateLoading, 30);
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                }, 300);
+            } else {
+                menu.style.display = 'block';
+                setTimeout(() => {
+                    menu.classList.add('show');
+                    const items = menu.querySelectorAll("li");
+                    items.forEach((item, index) => {
+                        item.style.animationDelay = `${index * 0.2}s`;
+                    });
+                }, 10);
             }
         }
-        
-        updateLoading();
-        
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById("loading-overlay").style.opacity = "0";
-                setTimeout(() => {
-                    document.getElementById("loading-overlay").style.display = "none";
-                }, 2000);
-                
-                document.body.style.opacity = "1";
-            }, 500);
-        };
     </script>
 </body>
 </html>
